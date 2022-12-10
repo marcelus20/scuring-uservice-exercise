@@ -18,6 +18,13 @@
 
     <name>${project.artifactId}</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.web.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
