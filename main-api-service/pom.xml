@@ -11,22 +11,14 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.marcelus.securinguserviceexercise.gateway</groupId>
-    <artifactId>gateway</artifactId>
+    <groupId>com.marcelus.securinguserviceexercise.mainapi</groupId>
+    <artifactId>main-api-service</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
 
-
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-gateway -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-            <version>${spring.cloud.gateway.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

@@ -13,16 +13,27 @@
     <name>${project.artifactId}</name>
 
     <modules>
-        <module>gateway</module>
-        <module>security</module>
-        <module>main-api</module>
+        <module>gateway-service</module>
+        <module>security-service</module>
+        <module>main-api-service</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+
+        <!-- Spring dependecies-->
         <spring.cloud.gateway.version>3.1.4</spring.cloud.gateway.version>
         <spring.boot.web.version>2.7.6</spring.boot.web.version>
+        <spring.security.version>2.7.6</spring.security.version>
+
+        <!-- JWT Handling-->
+        <jjwt.version>0.9.1</jjwt.version>
+        <javax.version>2.4.0-b180830.0359</javax.version>
+
+        <!-- Serialization and Decerialization-->
+        <jackson.core.version>2.13.4</jackson.core.version>
+        <jackson.databind.version>2.13.4</jackson.databind.version>
     </properties>
 
     <build>

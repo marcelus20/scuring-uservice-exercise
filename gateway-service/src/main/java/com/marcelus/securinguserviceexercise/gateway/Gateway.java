@@ -15,6 +15,8 @@ public class Gateway {
         return builder.routes()
                 .route("health_route", r -> r.path("/health")
                         .uri("http://localhost:33333/health"))
+                .route("auth_route", r-> r.path("/auth")
+                        .uri("http://localhost:22222/auth"))
                 .build();
     }
 
