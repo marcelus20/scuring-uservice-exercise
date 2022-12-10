@@ -5,6 +5,8 @@ import com.marcelus.securinguserviceexercise.security.service.client.models.Auth
 import com.marcelus.securinguserviceexercise.security.service.client.models.AuthToken;
 import com.marcelus.securinguserviceexercise.security.service.client.models.ValidTokenAcknowledgement;
 import com.marcelus.securinguserviceexercise.security.service.utils.JwtUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,6 +29,8 @@ import java.util.Map;
 @SpringBootApplication
 @RestController
 public class SecurityController {
+
+    private static Logger logger = LoggerFactory.getLogger(SecurityController.class);
 
     public static final String SERVICE_NAME = "security-service";
 
@@ -56,8 +60,10 @@ public class SecurityController {
 
             final String jwt = jwtUtil.generateToken(userDetails);
 
+            logger.info("Successful authentication.");
             return ResponseEntity.ok(new AuthResp(jwt));
         }catch (Exception e){
+            logger.error("Error while creating the authentication. Error content: {}", e);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
@@ -65,7 +71,8 @@ public class SecurityController {
     @PostMapping(value="/validate")
     public ResponseEntity<ValidTokenAcknowledgement> validate(@RequestHeader Map<String, String> headers){
         // If Request gets here, it's because the token is valid, so send the acknowledgement!
-            return ResponseEntity.ok(new ValidTokenAcknowledgement(new AuthToken(headers.get("authorization"))));
+        logger.info("Successful validation of token. Returning the validTokenAcknowledgement instance.");
+        return ResponseEntity.ok(new ValidTokenAcknowledgement(new AuthToken(headers.get("authorization"))));
     }
 
 

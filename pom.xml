@@ -34,6 +34,9 @@
         <!-- Serialization and Decerialization-->
         <jackson.core.version>2.13.4</jackson.core.version>
         <jackson.databind.version>2.13.4</jackson.databind.version>
+
+        <!-- Logging lib-->
+        <log4j.version>2.19.0</log4j.version>
     </properties>
 
     <build>
