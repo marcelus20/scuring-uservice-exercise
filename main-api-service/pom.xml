@@ -26,11 +26,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>fluent-hc</artifactId>
-            <version>4.5.14</version>
+            <groupId>com.marcelus.securinguserviceexercise.security.client</groupId>
+            <artifactId>security-client</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
-
 
     </dependencies>
 

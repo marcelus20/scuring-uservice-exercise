@@ -1,5 +1,6 @@
-package com.marcelus.securinguserviceexercise.security.utils;
+package com.marcelus.securinguserviceexercise.security.service.utils;
 
+import com.marcelus.securinguserviceexercise.security.service.SecurityController;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,11 +12,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 
-import static com.marcelus.securinguserviceexercise.security.SecurityController.SERVICE_NAME;
-
 public class JwtUtil {
 
-    private final String secretKey ="foobarfizzbuzz";
+    private static final String SECRET_KEY ="foobarfizzbuzz";
 
     public String extractUserName(String token){
         return retrieveClaim(token, Claims::getSubject);
@@ -27,7 +26,7 @@ public class JwtUtil {
     }
 
     public Claims extractAllClaims(String token) {
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 
     public String generateToken(UserDetails userDetails){
@@ -42,7 +41,7 @@ public class JwtUtil {
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 *10))
                 .setIssuer("Security-Service")
-                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .compact();
     }
 
@@ -52,7 +51,7 @@ public class JwtUtil {
     }
 
     public Boolean validateToken(String token){
-        return Objects.equals(retrieveClaim(token, Claims::getIssuer), SERVICE_NAME)
+        return Objects.equals(retrieveClaim(token, Claims::getIssuer), SecurityController.SERVICE_NAME)
                 && ! retrieveClaim(token, Claims::getExpiration).before(new Date());
     }
 }

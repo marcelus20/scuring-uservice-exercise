@@ -1,10 +1,10 @@
-package com.marcelus.securinguserviceexercise.security;
+package com.marcelus.securinguserviceexercise.security.service;
 
-import com.marcelus.securinguserviceexercise.security.models.AuthReq;
-import com.marcelus.securinguserviceexercise.security.models.AuthResp;
-import com.marcelus.securinguserviceexercise.security.models.AuthToken;
-import com.marcelus.securinguserviceexercise.security.models.ValidTokenAcknowledgement;
-import com.marcelus.securinguserviceexercise.security.utils.JwtUtil;
+import com.marcelus.securinguserviceexercise.security.service.client.models.AuthReq;
+import com.marcelus.securinguserviceexercise.security.service.client.models.AuthResp;
+import com.marcelus.securinguserviceexercise.security.service.client.models.AuthToken;
+import com.marcelus.securinguserviceexercise.security.service.client.models.ValidTokenAcknowledgement;
+import com.marcelus.securinguserviceexercise.security.service.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -47,7 +47,7 @@ public class SecurityController {
     }
 
     @PostMapping(value="/auth", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> createAuth(@RequestBody AuthReq authReq) {
+    public ResponseEntity<AuthResp> createAuth(@RequestBody AuthReq authReq) {
         try{
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authReq.getUsername(), authReq.getPassword())
@@ -58,7 +58,7 @@ public class SecurityController {
 
             return ResponseEntity.ok(new AuthResp(jwt));
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
 

@@ -1,4 +1,5 @@
-package com.marcelus.securinguserviceexercise.security.models;
+package com.marcelus.securinguserviceexercise.security.service.client.models;
+
 
 public class ValidTokenAcknowledgement {
     private Boolean valid;
@@ -24,5 +25,13 @@ public class ValidTokenAcknowledgement {
 
     public AuthToken getAuthToken(){
         return authToken;
+    }
+
+    public void setValid(Boolean valid) {
+        this.valid = valid;
+    }
+
+    public void setAuthToken(AuthToken authToken) {
+        this.authToken = authToken;
     }
 }

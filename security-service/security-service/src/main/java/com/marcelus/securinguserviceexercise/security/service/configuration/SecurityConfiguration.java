@@ -1,6 +1,6 @@
-package com.marcelus.securinguserviceexercise.security.configuration;
+package com.marcelus.securinguserviceexercise.security.service.configuration;
 
-import com.marcelus.securinguserviceexercise.security.utils.JwtUtil;
+import com.marcelus.securinguserviceexercise.security.service.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;

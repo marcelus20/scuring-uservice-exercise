@@ -1,4 +1,4 @@
-package com.marcelus.securinguserviceexercise.security.models;
+package com.marcelus.securinguserviceexercise.security.service.client.models;
 
 public class AuthResp extends AuthToken{
 
