@@ -24,6 +24,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.web.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+            <version>4.5.14</version>
+        </dependency>
+
+
     </dependencies>
 
 
