@@ -5,6 +5,7 @@ This project is just an exercise of implementing JWT to secure microservices.
 IMPORTANT: Project is supposed to be run using the docker-compose, don't run each service separately from
 jar or IDE play button, since the microservices need to be networked together to be able to communicate.
 Instructions for running the docker-compose will be listed bellow.
+Also, make sure that the mvn or java are allowed to run docker in your machine. You need to be able to run docker without sudo. Follow the [docker post-installation steps guide](https://docs.docker.com/engine/install/linux-postinstall/) for more information. To allow docker to be executed by maven, simply issue the ```sudo chmod o+w /var/run/docker.sock``` command in the linux terminal.
 
 
 ## How to deploy
