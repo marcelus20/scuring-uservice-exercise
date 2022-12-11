@@ -14,9 +14,9 @@ public class Gateway {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("health_route", r -> r.path("/health")
-                        .uri("http://localhost:33333/health"))
+                        .uri("http://main-api-service:33333/health"))
                 .route("auth_route", r-> r.path("/auth")
-                        .uri("http://localhost:22222/auth"))
+                        .uri("http://security-service:22222/auth"))
                 .build();
     }
 

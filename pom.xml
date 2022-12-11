@@ -16,6 +16,7 @@
         <module>gateway-service</module>
         <module>security-service</module>
         <module>main-api-service</module>
+        <module>cluster-composer</module>
     </modules>
 
     <properties>
@@ -34,6 +35,18 @@
         <!-- Serialization and Decerialization-->
         <jackson.core.version>2.13.4</jackson.core.version>
         <jackson.databind.version>2.13.4</jackson.databind.version>
+
+        <!-- Logging lib-->
+        <log4j.version>2.19.0</log4j.version>
+
+        <!-- Containerizing-->
+        <dockerfile.maven.version>1.4.13</dockerfile.maven.version>
+        <gateway.container.name>gateway-service</gateway.container.name>
+        <gateway.container.port>8080</gateway.container.port>
+        <security.container.name>security-service</security.container.name>
+        <security.container.port>22222</security.container.port>
+        <main.api.container.name>main-api-service</main.api.container.name>
+        <main.api.container.port>33333</main.api.container.port>
     </properties>
 
     <build>

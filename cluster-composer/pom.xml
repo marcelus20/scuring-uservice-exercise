@@ -11,17 +11,24 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.marcelus.securinguserviceexercise.security</groupId>
-    <artifactId>security-service-parent</artifactId>
+    <groupId>com.marcelus.securinguserviceexercise.cluster-composer</groupId>
+    <artifactId>cluster-composer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
 
-    <modules>
-        <module>security-client</module>
-        <module>security-service</module>
-    </modules>
+    <dependencies>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 
 
