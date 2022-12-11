@@ -17,7 +17,7 @@ git clone https://github.com/marcelus20/securing-uservice-exercise
 
 Secondly, move to the cloned folder:
 ```shell
-cd securing-userservice-exercise
+cd securing-uservice-exercise
 ```
 
 Thirdly, run mvn clean install **from the parent directory** to generate the cluster-compose/target/classes/docker-compose.yaml
