@@ -5,11 +5,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <parent>
-        <groupId>com.marcelus.securinguserviceexercise.security</groupId>
-        <artifactId>security-service-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.6</version>
+        <relativePath/>
     </parent>
+
 
     <groupId>com.marcelus.securinguserviceexercise.security.service</groupId>
     <artifactId>security-service</artifactId>
@@ -77,5 +80,61 @@
             <version>${log4j.version}</version>
         </dependency>
     </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+
+        <!-- Spring dependecies-->
+        <spring.cloud.gateway.version>3.1.4</spring.cloud.gateway.version>
+        <spring.boot.web.version>2.7.6</spring.boot.web.version>
+        <spring.security.version>2.7.6</spring.security.version>
+
+        <!-- JWT Handling-->
+        <jjwt.version>0.9.1</jjwt.version>
+        <javax.version>2.4.0-b180830.0359</javax.version>
+
+        <!-- Serialization and Decerialization-->
+        <jackson.core.version>2.13.4</jackson.core.version>
+        <jackson.databind.version>2.13.4</jackson.databind.version>
+
+        <!-- Logging lib-->
+        <log4j.version>2.19.0</log4j.version>
+
+        <!-- Containerizing-->
+        <dockerfile.maven.version>1.4.13</dockerfile.maven.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dockerfile>Dockerfile</dockerfile>
+                    <repository>${project.name}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

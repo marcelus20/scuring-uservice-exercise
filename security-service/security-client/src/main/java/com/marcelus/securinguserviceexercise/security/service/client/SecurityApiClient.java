@@ -18,7 +18,7 @@ public class SecurityApiClient {
 
     public ValidTokenAcknowledgement validate(Map<String, String> headers){
         try {
-            HttpResponse httpResponse = Request.Post("http://localhost:22222/validate")
+            HttpResponse httpResponse = Request.Post("http://security-service:22222/validate")
                     .setHeader("Authorization", headers.get("authorization"))
                     .setHeader("Content-Type", "application/json")
                     .execute().returnResponse();

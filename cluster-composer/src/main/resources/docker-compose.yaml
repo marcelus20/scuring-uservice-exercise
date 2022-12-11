@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  gateway-service:
+    container_name: "${gateway.container.name}"
+    image: "${gateway.container.name}:${project.version}"
+    ports:
+      - "80:${gateway.container.port}"
+    depends_on:
+      - security-service
+      - main-api-service
+  security-service:
+    container_name: "${security.container.name}"
+    image: "${security.container.name}:${project.version}"
+    ports:
+      - "${security.container.port}:${security.container.port}"
+  main-api-service:
+    container_name: "${main.api.container.name}"
+    image: "${main.api.container.name}:${project.version}"
+    ports:
+      - "${main.api.container.port}:${main.api.container.port}"
